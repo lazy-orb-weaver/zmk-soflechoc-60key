@@ -70,12 +70,19 @@
             require-prior-idle-ms = <25>;
             flavor = "balanced";
         };
+
+        lcaps: lcaps {
+            compatible = "zmk,behavior-tap-dance";
+            label = "LCAPS";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_SHIFT>, <&caps_word>;
+        };
     };
 
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
+        qwerty {
             display-name = "default";
 
             // ------------------------------------------------------------------------------------------------------------
@@ -98,11 +105,11 @@
 
         dvorak {
             bindings = <
-&trans      &kp N7          &kp N5          &kp N3            &kp N1              &kp N9                          &kp N0  &kp N2               &kp N4             &kp N6           &kp N8           &trans
-&trans      &kp APOS        &kp COMMA       &kp DOT           &kp P               &kp Y                           &kp F   &kp G                &kp C              &kp R            &kp L            &trans
-&caps_word  &hm LEFT_GUI A  &hm LEFT_ALT O  &hm LEFT_SHIFT E  &hm LEFT_CONTROL U  &kp I                           &kp D   &hm RIGHT_CONTROL H  &hm RIGHT_SHIFT T  &hm RIGHT_ALT N  &hm RIGHT_GUI S  &caps_word
-&trans      &kp SEMI        &kp Q           &kp J             &kp K               &kp X   &trans          &trans  &kp B   &kp M                &kp W              &kp V            &kp Z            &trans
-                            &trans          &trans            &trans              &trans  &spc 6 SPACE    &trans  &trans  &trans               &trans             &trans
+&trans  &kp N7          &kp N5          &kp N3            &kp N1              &kp N9                          &kp N0  &kp N2               &kp N4             &kp N6           &kp N8           &trans
+&trans  &kp APOS        &kp COMMA       &kp DOT           &kp P               &kp Y                           &kp F   &kp G                &kp C              &kp R            &kp L            &trans
+&lcaps  &hm LEFT_GUI A  &hm LEFT_ALT O  &hm LEFT_SHIFT E  &hm LEFT_CONTROL U  &kp I                           &kp D   &hm RIGHT_CONTROL H  &hm RIGHT_SHIFT T  &hm RIGHT_ALT N  &hm RIGHT_GUI S  &kp RIGHT_SHIFT
+&trans  &kp SEMI        &kp Q           &kp J             &kp K               &kp X   &trans          &trans  &kp B   &kp M                &kp W              &kp V            &kp Z            &trans
+                        &trans          &trans            &trans              &trans  &spc 6 SPACE    &trans  &trans  &trans               &trans             &trans
             >;
         };
 
@@ -128,11 +135,11 @@
             //               |     |      |      |      |        |  |       |      |       |       |      |
 
             bindings = <
-&trans  &kp F1             &kp F2           &kp F3               &kp F4                 &kp F5                       &kp F6          &kp F7                   &kp F8                 &kp F9                      &kp F10                      &kp F11
-&trans  &kp N1             &kp N2           &kp N3               &kp N4                 &kp N5                       &kp CARET       &kp AMPERSAND            &kp ASTRK              &kp LEFT_PARENTHESIS        &kp RIGHT_PARENTHESIS        &kp F12
-&trans  &hm LEFT_GUI EXCL  &hm LEFT_ALT AT  &hm LEFT_SHIFT HASH  &hm LEFT_CONTROL DLLR  &kp PRCNT                    &kp MINUS       &hm RIGHT_CONTROL EQUAL  &hm RIGHT_SHIFT ASTRK  &hm RIGHT_ALT LEFT_BRACKET  &hm RIGHT_GUI RIGHT_BRACKET  &kp PIPE
-&trans  &kp EQUAL          &kp MINUS        &kp PLUS             &kp LBRC               &kp RBRC   &trans    &trans  &kp UNDERSCORE  &kp PLUS                 &kp LEFT_BRACE         &kp RIGHT_BRACE             &kp PIPE                     &trans
-                           &trans           &trans               &trans                 &trans     &trans    &trans  &trans          &trans                   &trans                 &trans
+&trans  &kp F1                   &kp F2                         &kp F3                &kp F4                         &kp F5                       &kp F6     &kp F7                           &kp F8                     &kp F9                           &kp F10                    &kp F11
+&trans  &kp N7                   &kp N5                         &kp N3                &kp NUMBER_1                   &kp N9                       &kp N0     &kp N2                           &kp N4                     &kp N6                           &kp N8                     &kp F12
+&trans  &hm LEFT_GUI LEFT_BRACE  &hm LEFT_ALT LEFT_PARENTHESIS  &hm LEFT_SHIFT SLASH  &hm LEFT_CONTROL LEFT_BRACKET  &kp EQUAL                    &kp MINUS  &hm RIGHT_CONTROL RIGHT_BRACKET  &hm RIGHT_SHIFT BACKSLASH  &hm RIGHT_ALT RIGHT_PARENTHESIS  &hm RIGHT_GUI RIGHT_BRACE  &none
+&trans  &none                    &kp LESS_THAN                  &kt SEMI              &none                          &none      &trans    &trans  &none      &none                            &kp COLON                  &kp GREATER_THAN                 &none                      &trans
+                                 &trans                         &trans                &trans                         &trans     &trans    &trans  &trans     &trans                           &trans                     &trans
             >;
 
             sensor-bindings =
@@ -172,7 +179,7 @@
             display-name = "adjust";
             bindings = <
 &bt BT_CLR_ALL     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                    &none  &none           &none              &none            &none       &none
-&ext_power EP_TOG  &none         &none         &none         &none         &studio_unlock                  &none  &none           &kp C_PLAY_PAUSE   &none            &none       &none
+&ext_power EP_TOG  &none         &none         &none         &none         &studio_unlock                  &none  &none           &kp C_PLAY_PAUSE   &kp C_MUTE       &none       &none
 &none              &to 0         &to 1         &to 2         &none         &none                           &none  &kp C_PREVIOUS  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp C_NEXT  &none
 &none              &none         &none         &none         &none         &caps_word      &none    &none  &none  &none           &none              &none            &none       &none
                                  &none         &none         &none         &none           &none    &none  &none  &none           &none              &none
