@@ -82,7 +82,7 @@
             //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
 
             bindings = <
-&gresc            &kp N1  &kp N2    &kp N3    &kp N4     &kp N5                                       &kp N6           &kp N7     &kp N8     &kp N9    &kp N0    &kp MINUS
+&kp GRAVE         &kp N1  &kp N2    &kp N3    &kp N4     &kp N5                                       &kp N6           &kp N7     &kp N8     &kp N9    &kp N0    &kp MINUS
 &mt LGUI TAB      &kp Q   &kp W     &kp E     &kp R      &kp T                                        &kp Y            &kp U      &kp I      &kp O     &kp P     &kp BSPC
 &kp LEFT_SHIFT    &kp A   &kp S     &kp D     &kp F      &kp G                                        &kp H            &kp J      &kp K      &kp L     &kp SEMI  &kp SQT
 &kp LEFT_CONTROL  &kp Z   &kp X     &kp C     &kp V      &kp B         &kp LEFT_BRACKET    &kp RBKT   &kp N            &kp M      &kp COMMA  &kp DOT   &kp FSLH  &kp RSHFT
@@ -107,11 +107,11 @@
 
         gallium-colstag {
             bindings = <
-&trans      &kp N7          &kp N5          &kp N3              &kp N1            &kp N9                          &kp N0  &kp N2             &kp N4               &kp N6           &kp N8           &trans
-&trans      &kp B           &kp L           &kp D               &kp C             &kp V                           &kp J   &kp Y              &kp O                &kp U            &kp COMMA        &trans
-&caps_word  &hm LEFT_GUI N  &hm LEFT_ALT R  &hm LEFT_CONTROL T  &hm LEFT_SHIFT S  &kp G                           &kp P   &hm RIGHT_SHIFT H  &hm RIGHT_CONTROL A  &hm RIGHT_ALT E  &hm RIGHT_GUI I  &caps_word
-&trans      &kp X           &kp Q           &kp M               &kp W             &kp Z   &trans          &trans  &kp K   &kp F              &kp SQT              &kp SEMI         &kp DOT          &trans
-                            &trans          &trans              &trans            &trans  &spc 8 SPACE    &trans  &trans  &trans             &trans               &trans
+&trans  &kp N7          &kp N5          &kp N3              &kp N1            &kp N9                          &kp N0  &kp N2             &kp N4               &kp N6           &kp N8           &trans
+&trans  &kp B           &kp L           &kp D               &kp C             &kp V                           &kp J   &kp Y              &kp O                &kp U            &kp COMMA        &trans
+&lcaps  &hm LEFT_GUI N  &hm LEFT_ALT R  &hm LEFT_CONTROL T  &hm LEFT_SHIFT S  &kp G                           &kp P   &hm RIGHT_SHIFT H  &hm RIGHT_CONTROL A  &hm RIGHT_ALT E  &hm RIGHT_GUI I  &kp RIGHT_SHIFT
+&trans  &kp X           &kp Q           &kp M               &kp W             &kp Z   &trans          &trans  &kp K   &kp F              &kp SQT              &kp SEMI         &kp DOT          &trans
+                        &trans          &trans              &trans            &trans  &spc 8 SPACE    &trans  &trans  &trans             &trans               &trans
             >;
 
             label = "gallium";
@@ -120,11 +120,11 @@
         gaming {
             display-name = "default";
             bindings = <
-&gresc            &kp N1  &kp N2    &kp N3    &kp N4        &kp N5                                    &kp N6           &kp N7     &kp N8     &kp N9    &kp N0    &kp MINUS
-&lt 4 TAB         &kp Q   &kp E     &kp W     &kp R         &kp T                                     &kp Y            &kp U      &kp I      &kp O     &kp P     &kp BSPC
-&kp LEFT_SHIFT    &kp G   &kp A     &kp S     &kp D         &kp F                                     &kp H            &kp J      &kp K      &kp L     &kp SEMI  &kp SQT
-&kp LEFT_CONTROL  &kp Z   &kp X     &kp C     &kp V         &kp B             &kp LBKT     &kp RBKT   &kp N            &kp M      &kp COMMA  &kp DOT   &kp FSLH  &kp RSHFT
-                          &kp LGUI  &kp LALT  &lt 5 ESCAPE  &kp LEFT_CONTROL  &kp SPACE    &kp ENTER  &lt 6 BACKSPACE  &kp RCTRL  &kp LALT   &kp RGUI
+&kp GRAVE         &kp N1  &kp N2  &kp N3    &kp N4        &kp N5                                                   &kp N6           &kp N7  &kp N8     &kp N9    &kp N0    &kp MINUS
+&kp TAB           &kp Q   &kp E   &kp W     &kp R         &kp T                                                    &kp Y            &kp U   &kp I      &kp O     &kp P     &kp BSPC
+&kp LEFT_SHIFT    &kp G   &kp A   &kp S     &kp D         &kp F                                                    &kp H            &kp J   &kp K      &kp L     &kp SEMI  &kp SQT
+&kp LEFT_CONTROL  &kp Z   &kp X   &kp C     &kp V         &kp B             &kp LEFT_BRACKET    &kp RIGHT_BRACKET  &kp N            &kp M   &kp COMMA  &kp DOT   &kp FSLH  &kp RSHFT
+                          &mo 7   &kp LALT  &lt 4 ESCAPE  &kp LEFT_CONTROL  &kp SPACE           &kp ENTER          &lt 6 BACKSPACE  &mo 1   &kp LALT   &kp RGUI
             >;
 
             sensor-bindings =
@@ -137,11 +137,11 @@
         gaming-mirror {
             display-name = "default";
             bindings = <
-&gresc            &kp N1    &kp N2    &kp N3     &kp N4        &kp N5                                    &kp N6           &kp N7     &kp N8    &kp N9    &kp N0  &kp MINUS
-&mt LGUI TAB      &kp P     &kp O     &kp I      &kp U         &kp Y                                     &kp T            &kp R      &kp E     &kp W     &kp Q   &kp BSPC
-&kp LEFT_SHIFT    &kp SEMI  &kp L     &kp K      &kp J         &kp H                                     &kp G            &kp F      &kp D     &kp S     &kp A   &kp SQT
-&kp LEFT_CONTROL  &kp FSLH  &kp DOT   &kp COMMA  &kp M         &kp N             &kp LBKT     &kp RBKT   &kp B            &kp V      &kp C     &kp X     &kp Z   &kp RSHFT
-                            &kp LGUI  &kp LALT   &lt 5 ESCAPE  &kp LEFT_CONTROL  &kp SPACE    &kp ENTER  &lt 6 BACKSPACE  &kp RCTRL  &kp LALT  &kp RGUI
+&kp GRAVE         &kp N1    &kp N2    &kp N3     &kp N4  &kp N5                                                   &kp N6           &kp N7     &kp N8    &kp N9    &kp N0  &kp MINUS
+&kp TAB           &kp P     &kp O     &kp I      &kp U   &kp Y                                                    &kp T            &kp R      &kp W     &kp E     &kp Q   &kp BSPC
+&kp LEFT_SHIFT    &kp SEMI  &kp L     &kp K      &kp J   &kp H                                                    &kp F            &kp D      &kp S     &kp A     &kp G   &kp SQT
+&kp LEFT_CONTROL  &kp FSLH  &kp DOT   &kp COMMA  &kp M   &kp N             &kp RIGHT_BRACKET    &kp LEFT_BRACKET  &kp B            &kp V      &kp C     &kp X     &kp Z   &kp RSHFT
+                            &kp LGUI  &kp LALT   &none   &kp LEFT_CONTROL  &kp SPACE            &kp ENTER         &lt 6 BACKSPACE  &kp RCTRL  &kp LALT  &kp RGUI
             >;
 
             sensor-bindings =
@@ -218,11 +218,11 @@
 
         nav {
             bindings = <
-&trans  &trans        &trans            &trans                &trans                  &trans                    &trans  &trans          &trans          &trans        &trans           &trans
-&trans  &trans        &trans            &kp INSERT            &kp DELETE              &trans                    &trans  &kp HOME        &kp PAGE_DOWN   &kp PAGE_UP   &kp END          &trans
-&trans  &kp LEFT_GUI  &hm LEFT_ALT TAB  &hm LEFT_SHIFT ENTER  &hm LEFT_CONTROL SPACE  &trans                    &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans
-&trans  &trans        &trans            &trans                &trans                  &trans  &trans    &trans  &trans  &kp BACKSPACE   &kp ENTER       &trans        &trans           &trans
-                      &trans            &trans                &trans                  &trans  &trans    &trans  &trans  &trans          &trans          &trans
+&trans  &trans        &trans            &trans                  &trans                &trans                    &trans  &trans          &trans          &trans        &trans           &trans
+&trans  &trans        &trans            &kp INSERT              &kp DELETE            &trans                    &trans  &kp HOME        &kp PAGE_DOWN   &kp PAGE_UP   &kp END          &trans
+&trans  &kp LEFT_GUI  &hm LEFT_ALT TAB  &hm LEFT_CONTROL ENTER  &hm LEFT_SHIFT SPACE  &trans                    &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans
+&trans  &trans        &trans            &trans                  &trans                &trans  &trans    &trans  &trans  &kp BACKSPACE   &kp ENTER       &trans        &trans           &trans
+                      &trans            &trans                  &trans                &trans  &trans    &trans  &trans  &trans          &trans          &trans
             >;
 
             label = "nav";
