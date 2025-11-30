@@ -45,15 +45,17 @@
             continue-list = <POUND MINUS BACKSPACE UNDERSCORE>;
         };
 
-        hm: hm {
+        hm_l: hm_l {
             compatible = "zmk,behavior-hold-tap";
-            label = "Homerow Mod";
+            label = "Homerow Mod Left Hand";
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <180>;
-            require-prior-idle-ms = <55>;
+            tapping-term-ms = <280>;
+            require-prior-idle-ms = <150>;
             flavor = "balanced";
+            quick-tap-ms = <175>;
+            hold-trigger-key-positions = <18 19 20 21 33 32 31 30 44 45 46 47 22 34 48>;
         };
 
         spc: spc {
@@ -73,6 +75,19 @@
             label = "LCAPS";
             #binding-cells = <0>;
             bindings = <&kp LEFT_SHIFT>, <&caps_word>;
+        };
+
+        hm_r: hm_r {
+            compatible = "zmk,behavior-hold-tap";
+            label = "Homerow Mod Right Hand";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <280>;
+            require-prior-idle-ms = <150>;
+            flavor = "balanced";
+            quick-tap-ms = <175>;
+            hold-trigger-key-positions = <13 25 37 38 26 14 15 16 17 29 28 27 39 40 41>;
         };
     };
 
@@ -103,11 +118,11 @@
 
         dvorak {
             bindings = <
-&trans  &kp N7          &kp N5          &kp N3              &kp N1            &kp N9                          &kp N0  &kp N2             &kp N4               &kp N6           &kp N8           &trans
-&trans  &kp APOS        &kp COMMA       &kp DOT             &kp P             &kp Y                           &kp F   &kp G              &kp C                &kp R            &kp L            &trans
-&lcaps  &hm LEFT_GUI A  &hm LEFT_ALT O  &hm LEFT_CONTROL E  &hm LEFT_SHIFT U  &kp I                           &kp D   &hm RIGHT_SHIFT H  &hm RIGHT_CONTROL T  &hm RIGHT_ALT N  &hm RIGHT_GUI S  &kp RIGHT_SHIFT
-&trans  &kp SEMI        &kp Q           &kp J               &kp K             &kp X   &trans          &trans  &kp B   &kp M              &kp W                &kp V            &kp Z            &trans
-                        &trans          &trans              &trans            &trans  &spc 8 SPACE    &trans  &trans  &trans             &trans               &trans
+&trans  &kp N7            &kp N5            &kp N3                &kp N1              &kp N9                          &kp N0  &kp N2               &kp N4                 &kp N6             &kp N8             &trans
+&trans  &kp APOS          &kp COMMA         &kp DOT               &kp P               &kp Y                           &kp F   &kp G                &kp C                  &kp R              &kp L              &trans
+&lcaps  &hm_l LEFT_GUI A  &hm_l LEFT_ALT O  &hm_l LEFT_CONTROL E  &hm_l LEFT_SHIFT U  &kp I                           &kp D   &hm_r RIGHT_SHIFT H  &hm_r RIGHT_CONTROL T  &hm_r RIGHT_ALT N  &hm_r RIGHT_GUI S  &kp RIGHT_SHIFT
+&trans  &kp SEMI          &kp Q             &kp J                 &kp K               &kp X   &trans          &trans  &kp B   &kp M                &kp W                  &kp V              &kp Z              &trans
+                          &trans            &trans                &trans              &trans  &spc 8 SPACE    &trans  &trans  &trans               &trans                 &trans
             >;
 
             label = "dvorak";
@@ -115,11 +130,11 @@
 
         gallium-colstag {
             bindings = <
-&trans  &kp N7          &kp N5          &kp N3              &kp N1            &kp N9                          &kp N0  &kp N2             &kp N4               &kp N6           &kp N8           &trans
-&trans  &kp B           &kp L           &kp D               &kp C             &kp V                           &kp J   &kp Y              &kp O                &kp U            &kp COMMA        &trans
-&lcaps  &hm LEFT_GUI N  &hm LEFT_ALT R  &hm LEFT_CONTROL T  &hm LEFT_SHIFT S  &kp G                           &kp P   &hm RIGHT_SHIFT H  &hm RIGHT_CONTROL A  &hm RIGHT_ALT E  &hm RIGHT_GUI I  &kp RIGHT_SHIFT
-&trans  &kp X           &kp Q           &kp M               &kp W             &kp Z   &trans          &trans  &kp K   &kp F              &kp SQT              &kp SEMI         &kp DOT          &trans
-                        &trans          &trans              &trans            &trans  &spc 8 SPACE    &trans  &trans  &trans             &trans               &trans
+&trans  &kp N7            &kp N5            &kp N3                &kp N1              &kp N9                          &kp N0  &kp N2               &kp N4                 &kp N6             &kp N8             &trans
+&trans  &kp B             &kp L             &kp D                 &kp C               &kp V                           &kp J   &kp Y                &kp O                  &kp U              &kp COMMA          &trans
+&lcaps  &hm_l LEFT_GUI N  &hm_l LEFT_ALT R  &hm_l LEFT_CONTROL T  &hm_l LEFT_SHIFT S  &kp G                           &kp P   &hm_r RIGHT_SHIFT H  &hm_r RIGHT_CONTROL A  &hm_r RIGHT_ALT E  &hm_r RIGHT_GUI I  &kp RIGHT_SHIFT
+&trans  &kp X             &kp Q             &kp M                 &kp W               &kp Z   &trans          &trans  &kp K   &kp F                &kp SQT                &kp SEMI           &kp DOT            &trans
+                          &trans            &trans                &trans              &trans  &spc 8 SPACE    &trans  &trans  &trans               &trans                 &trans
             >;
 
             label = "gallium";
@@ -145,11 +160,11 @@
         gaming-mirror {
             display-name = "gaming-mirror";
             bindings = <
-&kp GRAVE         &kp N1    &kp N2    &kp N3     &kp N4  &kp N5                                                   &kp N6           &kp N7     &kp N8    &kp N9    &kp N0  &kp MINUS
-&kp TAB           &kp P     &kp O     &kp I      &kp U   &kp Y                                                    &kp T            &kp R      &kp W     &kp E     &kp Q   &kp BSPC
-&kp LEFT_SHIFT    &kp SEMI  &kp L     &kp K      &kp J   &kp H                                                    &kp F            &kp D      &kp S     &kp A     &kp G   &kp SQT
-&kp LEFT_CONTROL  &kp FSLH  &kp DOT   &kp COMMA  &kp M   &kp N             &kp RIGHT_BRACKET    &kp LEFT_BRACKET  &kp B            &kp V      &kp C     &kp X     &kp Z   &kp RSHFT
-                            &kp LGUI  &kp LALT   &trans  &kp LEFT_CONTROL  &kp SPACE            &kp ENTER         &lt 5 BACKSPACE  &kp RCTRL  &kp LALT  &kp RGUI
+&trans  &kp N1    &kp N2   &kp N3     &kp N4  &kp N5                                         &kp N6  &kp N7  &kp N8  &kp N9  &kp N0  &trans
+&trans  &kp P     &kp O    &kp I      &kp U   &kp Y                                          &kp T   &kp R   &kp W   &kp E   &kp Q   &trans
+&trans  &kp SEMI  &kp L    &kp K      &kp J   &kp H                                          &kp F   &kp D   &kp S   &kp A   &kp G   &trans
+&trans  &kp FSLH  &kp DOT  &kp COMMA  &kp M   &kp N   &kp RIGHT_BRACKET    &kp LEFT_BRACKET  &kp B   &kp V   &kp C   &kp X   &kp Z   &trans
+                  &trans   &trans     &trans  &trans  &trans               &trans            &trans  &trans  &trans  &trans
             >;
 
             sensor-bindings =
@@ -171,11 +186,11 @@
             //               |     |      |      |      |        |  |       |      |       |       |      |
 
             bindings = <
-&trans  &kp F1                   &kp F2                         &kp F3                  &kp F4                       &kp F5                       &kp F6     &kp F7                         &kp F8                       &kp F9                           &kp F10                    &kp F11
-&trans  &kp N7                   &kp N5                         &kp N3                  &kp NUMBER_1                 &kp N9                       &kp N0     &kp N2                         &kp N4                       &kp N6                           &kp N8                     &kp F12
-&trans  &hm LEFT_GUI LEFT_BRACE  &hm LEFT_ALT LEFT_PARENTHESIS  &hm LEFT_CONTROL SLASH  &hm LEFT_SHIFT LEFT_BRACKET  &kp EQUAL                    &kp MINUS  &hm RIGHT_SHIFT RIGHT_BRACKET  &hm RIGHT_CONTROL BACKSLASH  &hm RIGHT_ALT RIGHT_PARENTHESIS  &hm RIGHT_GUI RIGHT_BRACE  &trans
-&trans  &none                    &kp LESS_THAN                  &kp SEMI                &none                        &none      &trans    &trans  &none      &none                          &kp COLON                    &kp GREATER_THAN                 &none                      &trans
-                                 &trans                         &trans                  &trans                       &trans     &trans    &trans  &trans     &trans                         &trans                       &trans
+&trans  &kp F1                     &kp F2                           &kp F3                    &kp F4                         &kp F5                       &kp F6     &kp F7                           &kp F8                         &kp F9                             &kp F10                      &kp F11
+&trans  &kp N7                     &kp N5                           &kp N3                    &kp NUMBER_1                   &kp N9                       &kp N0     &kp N2                           &kp N4                         &kp N6                             &kp N8                       &kp F12
+&trans  &hm_l LEFT_GUI LEFT_BRACE  &hm_l LEFT_ALT LEFT_PARENTHESIS  &hm_l LEFT_CONTROL SLASH  &hm_l LEFT_SHIFT LEFT_BRACKET  &kp EQUAL                    &kp MINUS  &hm_r RIGHT_SHIFT RIGHT_BRACKET  &hm_r RIGHT_CONTROL BACKSLASH  &hm_r RIGHT_ALT RIGHT_PARENTHESIS  &hm_r RIGHT_GUI RIGHT_BRACE  &trans
+&trans  &none                      &kp LESS_THAN                    &kp SEMI                  &none                          &none      &trans    &trans  &none      &none                            &kp COLON                      &kp GREATER_THAN                   &none                        &trans
+                                   &trans                           &trans                    &trans                         &trans     &trans    &trans  &trans     &trans                           &trans                         &trans
             >;
 
             sensor-bindings =
@@ -226,11 +241,11 @@
 
         nav {
             bindings = <
-&trans  &trans        &trans            &trans                  &trans                &trans                    &trans  &trans          &trans          &trans        &trans           &trans
-&trans  &trans        &trans            &kp INSERT              &kp DELETE            &trans                    &trans  &kp HOME        &kp PAGE_DOWN   &kp PAGE_UP   &kp END          &trans
-&trans  &kp LEFT_GUI  &hm LEFT_ALT TAB  &hm LEFT_CONTROL ENTER  &hm LEFT_SHIFT SPACE  &trans                    &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans
-&trans  &trans        &trans            &trans                  &trans                &trans  &trans    &trans  &trans  &kp BACKSPACE   &kp ENTER       &trans        &trans           &trans
-                      &trans            &trans                  &trans                &trans  &trans    &trans  &trans  &trans          &trans          &trans
+&trans  &trans        &trans              &trans                    &trans                  &trans                    &trans  &trans          &trans          &trans        &trans           &trans
+&trans  &trans        &trans              &kp INSERT                &kp DELETE              &trans                    &trans  &kp HOME        &kp PAGE_DOWN   &kp PAGE_UP   &kp END          &trans
+&trans  &kp LEFT_GUI  &hm_l LEFT_ALT TAB  &hm_l LEFT_CONTROL ENTER  &hm_l LEFT_SHIFT SPACE  &trans                    &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans
+&trans  &trans        &trans              &trans                    &trans                  &trans  &trans    &trans  &trans  &kp BACKSPACE   &kp ENTER       &trans        &trans           &trans
+                      &trans              &trans                    &trans                  &trans  &trans    &trans  &trans  &trans          &trans          &trans
             >;
 
             label = "nav";
