@@ -75,7 +75,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "LCAPS";
             #binding-cells = <0>;
-            bindings = <&mt LEFT_SHIFT EQUAL>, <&caps_word>;
+            bindings = <&kp LEFT_SHIFT>, <&caps_word>;
         };
 
         hm_r: hm_r {
