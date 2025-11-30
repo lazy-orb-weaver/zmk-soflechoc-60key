@@ -27,7 +27,15 @@
         };
     };
 
-    combos { compatible = "zmk,combos"; };
+    combos {
+        compatible = "zmk,combos";
+
+        question_mark {
+            bindings = <&kp QUESTION>;
+            key-positions = <14 15>;
+            layers = <1 2>;
+        };
+    };
 
     behaviors {
         caps: caps {
@@ -86,7 +94,7 @@
 &mt LGUI TAB      &kp Q   &kp W     &kp E     &kp R      &kp T                                        &kp Y            &kp U      &kp I      &kp O     &kp P     &kp BSPC
 &kp LEFT_SHIFT    &kp A   &kp S     &kp D     &kp F      &kp G                                        &kp H            &kp J      &kp K      &kp L     &kp SEMI  &kp SQT
 &kp LEFT_CONTROL  &kp Z   &kp X     &kp C     &kp V      &kp B         &kp LEFT_BRACKET    &kp RBKT   &kp N            &kp M      &kp COMMA  &kp DOT   &kp FSLH  &kp RSHFT
-                          &kp LGUI  &kp LALT  &kp LCTRL  &lt 5 ESCAPE  &kp SPACE           &kp ENTER  &lt 6 BACKSPACE  &kp RCTRL  &kp LALT   &kp RGUI
+                          &kp LGUI  &kp LALT  &kp LCTRL  &lt 6 ESCAPE  &kp SPACE           &kp ENTER  &lt 5 BACKSPACE  &kp RCTRL  &kp LALT   &kp RGUI
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -118,13 +126,13 @@
         };
 
         gaming {
-            display-name = "default";
+            display-name = "game";
             bindings = <
 &kp GRAVE         &kp N1  &kp N2  &kp N3    &kp N4        &kp N5                                                   &kp N6           &kp N7  &kp N8     &kp N9    &kp N0    &kp MINUS
 &kp TAB           &kp Q   &kp E   &kp W     &kp R         &kp T                                                    &kp Y            &kp U   &kp I      &kp O     &kp P     &kp BSPC
 &kp LEFT_SHIFT    &kp G   &kp A   &kp S     &kp D         &kp F                                                    &kp H            &kp J   &kp K      &kp L     &kp SEMI  &kp SQT
 &kp LEFT_CONTROL  &kp Z   &kp X   &kp C     &kp V         &kp B             &kp LEFT_BRACKET    &kp RIGHT_BRACKET  &kp N            &kp M   &kp COMMA  &kp DOT   &kp FSLH  &kp RSHFT
-                          &mo 7   &kp LALT  &lt 4 ESCAPE  &kp LEFT_CONTROL  &kp SPACE           &kp ENTER          &lt 6 BACKSPACE  &mo 1   &kp LALT   &kp RGUI
+                          &mo 7   &kp LALT  &lt 4 ESCAPE  &kp LEFT_CONTROL  &kp SPACE           &kp ENTER          &lt 5 BACKSPACE  &mo 1   &kp LALT   &kp RGUI
             >;
 
             sensor-bindings =
@@ -141,7 +149,7 @@
 &kp TAB           &kp P     &kp O     &kp I      &kp U   &kp Y                                                    &kp T            &kp R      &kp W     &kp E     &kp Q   &kp BSPC
 &kp LEFT_SHIFT    &kp SEMI  &kp L     &kp K      &kp J   &kp H                                                    &kp F            &kp D      &kp S     &kp A     &kp G   &kp SQT
 &kp LEFT_CONTROL  &kp FSLH  &kp DOT   &kp COMMA  &kp M   &kp N             &kp RIGHT_BRACKET    &kp LEFT_BRACKET  &kp B            &kp V      &kp C     &kp X     &kp Z   &kp RSHFT
-                            &kp LGUI  &kp LALT   &none   &kp LEFT_CONTROL  &kp SPACE            &kp ENTER         &lt 6 BACKSPACE  &kp RCTRL  &kp LALT  &kp RGUI
+                            &kp LGUI  &kp LALT   &trans  &kp LEFT_CONTROL  &kp SPACE            &kp ENTER         &lt 5 BACKSPACE  &kp RCTRL  &kp LALT  &kp RGUI
             >;
 
             sensor-bindings =
@@ -163,11 +171,11 @@
             //               |     |      |      |      |        |  |       |      |       |       |      |
 
             bindings = <
-&trans  &kp F1                   &kp F2                         &kp F3                &kp F4                         &kp F5                       &kp F6     &kp F7                           &kp F8                     &kp F9                           &kp F10                    &kp F11
-&trans  &kp N7                   &kp N5                         &kp N3                &kp NUMBER_1                   &kp N9                       &kp N0     &kp N2                           &kp N4                     &kp N6                           &kp N8                     &kp F12
-&trans  &hm LEFT_GUI LEFT_BRACE  &hm LEFT_ALT LEFT_PARENTHESIS  &hm LEFT_SHIFT SLASH  &hm LEFT_CONTROL LEFT_BRACKET  &kp EQUAL                    &kp MINUS  &hm RIGHT_CONTROL RIGHT_BRACKET  &hm RIGHT_SHIFT BACKSLASH  &hm RIGHT_ALT RIGHT_PARENTHESIS  &hm RIGHT_GUI RIGHT_BRACE  &trans
-&trans  &none                    &kp LESS_THAN                  &kp SEMI              &none                          &none      &trans    &trans  &none      &none                            &kp COLON                  &kp GREATER_THAN                 &none                      &trans
-                                 &trans                         &trans                &trans                         &trans     &trans    &trans  &trans     &trans                           &trans                     &trans
+&trans  &kp F1                   &kp F2                         &kp F3                  &kp F4                       &kp F5                       &kp F6     &kp F7                         &kp F8                       &kp F9                           &kp F10                    &kp F11
+&trans  &kp N7                   &kp N5                         &kp N3                  &kp NUMBER_1                 &kp N9                       &kp N0     &kp N2                         &kp N4                       &kp N6                           &kp N8                     &kp F12
+&trans  &hm LEFT_GUI LEFT_BRACE  &hm LEFT_ALT LEFT_PARENTHESIS  &hm LEFT_CONTROL SLASH  &hm LEFT_SHIFT LEFT_BRACKET  &kp EQUAL                    &kp MINUS  &hm RIGHT_SHIFT RIGHT_BRACKET  &hm RIGHT_CONTROL BACKSLASH  &hm RIGHT_ALT RIGHT_PARENTHESIS  &hm RIGHT_GUI RIGHT_BRACE  &trans
+&trans  &none                    &kp LESS_THAN                  &kp SEMI                &none                        &none      &trans    &trans  &none      &none                          &kp COLON                    &kp GREATER_THAN                 &none                      &trans
+                                 &trans                         &trans                  &trans                       &trans     &trans    &trans  &trans     &trans                         &trans                       &trans
             >;
 
             sensor-bindings =
